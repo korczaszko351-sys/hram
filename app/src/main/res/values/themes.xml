@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.HRAM" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/hram_accent</item>
+        <item name="colorOnPrimary">@color/hram_on_accent</item>
+        <item name="colorSecondary">@color/hram_accent_soft</item>
+        <item name="android:statusBarColor">@color/hram_bg</item>
+        <item name="android:navigationBarColor">@color/hram_bg</item>
+    </style>
+</resources>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Widget.HramCard" parent="Widget.Material3.CardView.Filled">
+        <item name="cardBackgroundColor">@color/hram_surface</item>
+        <item name="cardCornerRadius">18dp</item>
+        <item name="cardElevation">0dp</item>
+        <item name="contentPadding">16dp</item>
+    </style>
+
+    <style name="Text.HramLabel">
+        <item name="android:textColor">@color/hram_text_dim</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:letterSpacing">0.06</item>
+    </style>
+
+    <style name="Text.HramValue">
+        <item name="android:textColor">@color/hram_text</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:fontFamily">monospace</item>
+    </style>
+
+    <style name="Text.HramBig">
+        <item name="android:textColor">@color/hram_accent</item>
+        <item name="android:textSize">30sp</item>
+        <item name="android:fontFamily">monospace</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Text.HramSection">
+        <item name="android:textColor">@color/hram_text</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+</resources>

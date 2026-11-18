@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="hram_bg">#0B1020</color>
+    <color name="hram_surface">#141B2E</color>
+    <color name="hram_accent">#4ADE80</color>
+    <color name="hram_on_accent">#04210F</color>
+    <color name="hram_accent_soft">#22D3EE</color>
+    <color name="hram_text">#E6EBF5</color>
+    <color name="hram_text_dim">#93A0B8</color>
+    <color name="hram_warn">#FBBF24</color>
+    <color name="hram_danger">#F87171</color>
+</resources>

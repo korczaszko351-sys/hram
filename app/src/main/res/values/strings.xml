@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">HRAM</string>
+    <string name="hyper_title">Hiperprędkość</string>
+
+    <string name="tab_status">Status</string>
+    <string name="tab_arena">Arena</string>
+    <string name="tab_root">Root</string>
+
+    <string name="section_device">Urządzenie</string>
+    <string name="section_limits">Limity pamięci tej aplikacji</string>
+    <string name="section_hram">Arena HRAM</string>
+    <string name="section_bench">Pomiar przepustowości</string>
+    <string name="section_hyper">Hiperprędkość</string>
+    <string name="section_root">Root i pamięć wymiany</string>
+
+    <string name="honesty_note">Wszystkie liczby na tym ekranie pochodzą z rzeczywistych pomiarów wykonanych na tym urządzeniu. HRAM rozszerza pojemność pamięci kosztem szybkości — nie dodaje fizycznego RAM.</string>
+
+    <string name="root_warning_title">Ostrzeżenie o ryzyku</string>
+    <string name="root_warning_body">Operacje na swapie i zRAM wymagają roota i zmieniają działanie całego systemu.\n\n• Zużycie flasha: swap zapisuje dane na pamięć flash — częste zapisy skracają jej żywotność.\n• Wolniejsze działanie: odczyt z flasha jest o rzędy wielkości wolniejszy od RAM; przy aktywnym swapie telefon może wyraźnie zwolnić.\n• Możliwy bootloop: błędna konfiguracja zRAM albo uszkodzony plik wymiany może uniemożliwić uruchomienie systemu.\n• Utrata danych: przerwanie operacji w trakcie zapisu może uszkodzić pliki.\n\nZmiany wykonujesz na własną odpowiedzialność. Przed eksperymentami zrób kopię zapasową.</string>
+
+    <string name="hyper_honesty">14 GB/s i 14000 MT/s to wartości specyfikacji DRAM, a nie pamięci flash w telefonie. Interfejs pokazuje wyłącznie przepustowość zmierzoną na tym urządzeniu.</string>
+</resources>
