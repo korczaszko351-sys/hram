@@ -1,0 +1,81 @@
+name: Build APK
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  apk:
+    name: Kompilacja APK (Kotlin + NDK)
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+
+    steps:
+      - name: Pobierz kod
+        uses: actions/checkout@v4
+
+      - name: Pobierz źródła LZ4 (BSD-2)
+        run: bash tools/fetch-lz4.sh
+
+      - name: JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Gradle 8.7
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.7'
+
+      - name: Android SDK + NDK + CMake
+        run: |
+          SDK_ROOT="$ANDROID_HOME"
+          if [ -z "$SDK_ROOT" ]; then SDK_ROOT="$ANDROID_SDK_ROOT"; fi
+          echo "SDK: $SDK_ROOT"
+          yes | "$SDK_ROOT/cmdline-tools/latest/bin/sdkmanager" --licenses > /dev/null 2>&1 || true
+          "$SDK_ROOT/cmdline-tools/latest/bin/sdkmanager" \
+            "platform-tools" \
+            "platforms;android-34" \
+            "build-tools;34.0.0" \
+            "ndk;26.1.10909125" \
+            "cmake;3.22.1"
+
+      - name: Wersje narzędzi
+        run: |
+          java -version
+          gradle --version | head -6
+          ls "$ANDROID_HOME/ndk" || true
+
+      - name: Zbuduj APK (debug)
+        run: gradle :app:assembleDebug --no-daemon --stacktrace
+
+      - name: Sprawdź artefakt
+        run: |
+          find app/build/outputs/apk -name '*.apk' -type f -printf '%p %s bajtów\n'
+
+      - name: Wgraj APK jako artefakt
+        uses: actions/upload-artifact@v4
+        with:
+          name: hram-apk
+          path: app/build/outputs/apk/**/*.apk
+          if-no-files-found: error
+          retention-days: 90
+
+      - name: Podsumowanie
+        run: |
+          {
+            echo '### HRAM — APK zbudowany'
+            echo ''
+            echo 'Pobierz: zakładka **Actions** → ten przebieg → sekcja **Artifacts** → **hram-apk**.'
+            echo ''
+            echo '```'
+            find app/build/outputs/apk -name '*.apk' -type f -printf '%f  (%s bajtów)\n'
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
