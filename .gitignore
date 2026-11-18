@@ -1,0 +1,22 @@
+# Kompilacja / narzędzia
+*.iml
+.gradle/
+build/
+captures/
+.externalNativeBuild
+.cxx
+local.properties
+*.hprof
+
+# LZ4 pobierany skryptem tools/fetch-lz4.sh (i w CI), nie z repozytorium
+app/src/main/cpp/lz4/
+
+# Klucze — NIGDY nie commituj
+*.jks
+*.keystore
+keystore.properties
+
+# System
+.DS_Store
+Thumbs.db
+.idea/
