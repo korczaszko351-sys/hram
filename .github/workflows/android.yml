@@ -54,7 +54,26 @@ jobs:
           ls "$ANDROID_HOME/ndk" || true
 
       - name: Zbuduj APK (debug)
-        run: gradle :app:assembleDebug --no-daemon --stacktrace
+        id: build
+        continue-on-error: true
+        run: gradle :app:assembleDebug --no-daemon --stacktrace 2>&1 | tee build.log
+
+      - name: Pokaż koniec logu przy błędzie
+        if: steps.build.outcome == 'failure'
+        run: tail -n 250 build.log
+
+      - name: Wgraj log budowania
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-log
+          path: build.log
+          if-no-files-found: ignore
+          retention-days: 14
+
+      - name: Przerwij przy błędzie kompilacji
+        if: steps.build.outcome == 'failure'
+        run: exit 1
 
       - name: Sprawdź artefakt
         run: |

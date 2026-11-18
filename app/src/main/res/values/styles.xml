@@ -7,26 +7,26 @@
         <item name="contentPadding">16dp</item>
     </style>
 
-    <style name="Text.HramLabel">
+    <style name="Text.HramLabel" parent="">
         <item name="android:textColor">@color/hram_text_dim</item>
         <item name="android:textSize">12sp</item>
         <item name="android:letterSpacing">0.06</item>
     </style>
 
-    <style name="Text.HramValue">
+    <style name="Text.HramValue" parent="">
         <item name="android:textColor">@color/hram_text</item>
         <item name="android:textSize">15sp</item>
         <item name="android:fontFamily">monospace</item>
     </style>
 
-    <style name="Text.HramBig">
+    <style name="Text.HramBig" parent="">
         <item name="android:textColor">@color/hram_accent</item>
         <item name="android:textSize">30sp</item>
         <item name="android:fontFamily">monospace</item>
         <item name="android:textStyle">bold</item>
     </style>
 
-    <style name="Text.HramSection">
+    <style name="Text.HramSection" parent="">
         <item name="android:textColor">@color/hram_text</item>
         <item name="android:textSize">16sp</item>
         <item name="android:textStyle">bold</item>
