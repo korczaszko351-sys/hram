@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/hram_bg"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/hyper_title"
+            android:textColor="@color/hram_text"
+            android:textSize="26sp"
+            android:textStyle="bold" />
+
+        <!-- ===== Wynik na żywo ===== -->
+        <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.HramCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/Text.HramLabel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="ZMIERZONA PRZEPUSTOWOŚĆ HRAM" />
+
+                <TextView
+                    android:id="@+id/hyperGbps"
+                    style="@style/Text.HramBig"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="—" />
+
+                <TextView
+                    android:id="@+id/hyperMbps"
+                    style="@style/Text.HramValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="—" />
+
+                <com.google.android.material.progressindicator.LinearProgressIndicator
+                    android:id="@+id/hyperProgress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:max="1000"
+                    android:progress="0" />
+
+                <TextView
+                    android:id="@+id/hyperProgressLabel"
+                    style="@style/Text.HramValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="Cel: 14 GB/s" />
+
+                <TextView
+                    android:id="@+id/hyperGap"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:textSize="13sp"
+                    android:textColor="@color/hram_warn"
+                    android:text="—" />
+
+                <TextView
+                    android:id="@+id/hyperBottleneck"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:textSize="13sp"
+                    android:textColor="@color/hram_text_dim"
+                    android:text="—" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- ===== Parametry ===== -->
+        <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.HramCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/Text.HramLabel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="ROZMIAR BLOKU" />
+
+                <com.google.android.material.slider.Slider
+                    android:id="@+id/sliderBlock"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:valueFrom="1"
+                    android:valueTo="16"
+                    android:stepSize="1"
+                    android:value="4" />
+
+                <TextView
+                    android:id="@+id/labelBlock"
+                    style="@style/Text.HramValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="4 MB" />
+
+                <TextView
+                    style="@style/Text.HramLabel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="LICZBA KANAŁÓW (WĄTKÓW)" />
+
+                <com.google.android.material.slider.Slider
+                    android:id="@+id/sliderChannels"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:valueFrom="1"
+                    android:valueTo="8"
+                    android:stepSize="1"
+                    android:value="4" />
+
+                <TextView
+                    android:id="@+id/labelChannels"
+                    style="@style/Text.HramValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="4 kanały" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnRunHyper"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Uruchom benchmark wielokanałowy" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- ===== Szczegóły pomiaru ===== -->
+        <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.HramCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/Text.HramLabel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="SZCZEGÓŁY POMIARU" />
+
+                <TextView
+                    android:id="@+id/hyperDetail"
+                    style="@style/Text.HramValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="—" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- ===== Weryfikacja założenia ===== -->
+        <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.HramCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/Text.HramLabel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="WERYFIKACJA ZAŁOŻENIA: 10,24 MB W 10 ns" />
+
+                <TextView
+                    android:id="@+id/claimResult"
+                    style="@style/Text.HramValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="—" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:layout_marginBottom="24dp"
+            android:text="@string/hyper_honesty"
+            android:textColor="@color/hram_text_dim"
+            android:textSize="11sp" />
+    </LinearLayout>
+</ScrollView>

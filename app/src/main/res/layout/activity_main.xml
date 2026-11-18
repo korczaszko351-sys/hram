@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/hram_bg"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="HRAM"
+            android:textColor="@color/hram_text"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.14" />
+
+        <TextView
+            android:id="@+id/subtitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="12dp"
+            android:text="warstwowa pamięć: RAM jako cache, bloki na flashu"
+            android:textColor="@color/hram_text_dim"
+            android:textSize="12sp" />
+
+        <!-- ================= STATUS URZĄDZENIA ================= -->
+        <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.HramCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/Text.HramSection"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/section_device" />
+
+                <TextView
+                    android:id="@+id/deviceRam"
+                    style="@style/Text.HramValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="—" />
+
+                <TextView
+                    android:id="@+id/deviceDisk"
+                    style="@style/Text.HramValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="—" />
+
+                <TextView
+                    android:id="@+id/deviceHeap"
+                    style="@style/Text.HramValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="—" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- ================= LIMITY ================= -->
+        <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.HramCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/Text.HramSection"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/section_limits" />
+
+                <TextView
+                    android:id="@+id/limitHeap"
+                    style="@style/Text.HramValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="—" />
+
+                <TextView
+                    android:id="@+id/limitNative"
+                    style="@style/Text.HramValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="—" />
+
+                <TextView
+                    android:id="@+id/limitAbi"
+                    style="@style/Text.HramValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="—" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="largeHeap podnosi limit sterty ART. Nie zwiększa fizycznego RAM — pozwala tylko zająć więcej z tego, co system już daje."
+                    android:textColor="@color/hram_text_dim"
+                    android:textSize="11sp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- ================= ARENA HRAM ================= -->
+        <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.HramCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/Text.HramSection"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/section_hram" />
+
+                <TextView
+                    android:id="@+id/arenaStatus"
+                    style="@style/Text.HramValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Arena nieotwarta" />
+
+                <TextView
+                    android:id="@+id/arenaStats"
+                    style="@style/Text.HramValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="—" />
+
+                <TextView
+                    style="@style/Text.HramLabel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:text="POJEMNOŚĆ ARENY" />
+
+                <com.google.android.material.slider.Slider
+                    android:id="@+id/sliderArenaMb"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:valueFrom="32"
+                    android:valueTo="4096"
+                    android:stepSize="32"
+                    android:value="256" />
+
+                <TextView
+                    android:id="@+id/labelArenaMb"
+                    style="@style/Text.HramValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="256 MB" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnOpenArena"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="Otwórz arenę" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnSelfTest"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Test poprawności (zapis + odczyt + CRC)" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnBench"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/section_bench" />
+
+                <TextView
+                    android:id="@+id/benchResult"
+                    style="@style/Text.HramValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Brak pomiaru." />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnHyper"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:text="@string/section_hyper" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnRoot"
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/section_root" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="24dp"
+            android:text="@string/honesty_note"
+            android:textColor="@color/hram_text_dim"
+            android:textSize="11sp" />
+    </LinearLayout>
+</ScrollView>

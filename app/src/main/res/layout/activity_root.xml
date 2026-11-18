@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/hram_bg"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Root i pamięć"
+            android:textColor="@color/hram_text"
+            android:textSize="26sp"
+            android:textStyle="bold" />
+
+        <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.HramCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/rootStatus"
+                    style="@style/Text.HramSection"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Sprawdzam root…" />
+
+                <TextView
+                    android:id="@+id/swapStatus"
+                    style="@style/Text.HramValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="—" />
+
+                <TextView
+                    android:id="@+id/swappinessValue"
+                    style="@style/Text.HramValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="—" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnCheckRoot"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="Sprawdź root ponownie" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- ===== Swap na pliku ===== -->
+        <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.HramCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/Text.HramSection"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Plik wymiany (swap)" />
+
+                <TextView
+                    style="@style/Text.HramLabel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="ROZMIAR PLIKU" />
+
+                <com.google.android.material.slider.Slider
+                    android:id="@+id/sliderSwap"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:valueFrom="256"
+                    android:valueTo="4096"
+                    android:stepSize="256"
+                    android:value="2048" />
+
+                <TextView
+                    android:id="@+id/labelSwap"
+                    style="@style/Text.HramValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="2048 MB" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnEnableSwap"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="Utwórz i włącz swap" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnDisableSwap"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Wyłącz swap i usuń plik" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- ===== zRAM + swappiness ===== -->
+        <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.HramCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/Text.HramSection"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="zRAM i vm.swappiness" />
+
+                <TextView
+                    style="@style/Text.HramLabel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="ROZMIAR zRAM" />
+
+                <com.google.android.material.slider.Slider
+                    android:id="@+id/sliderZram"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:valueFrom="512"
+                    android:valueTo="4096"
+                    android:stepSize="256"
+                    android:value="2048" />
+
+                <TextView
+                    android:id="@+id/labelZram"
+                    style="@style/Text.HramValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="2048 MB" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnZram"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="Skonfiguruj zRAM" />
+
+                <TextView
+                    style="@style/Text.HramLabel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:text="VM.SWAPPINESS" />
+
+                <com.google.android.material.slider.Slider
+                    android:id="@+id/sliderSwappiness"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:valueFrom="0"
+                    android:valueTo="200"
+                    android:stepSize="5"
+                    android:value="60" />
+
+                <TextView
+                    android:id="@+id/labelSwappiness"
+                    style="@style/Text.HramValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="60" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnSwappiness"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="Ustaw swappiness" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- ===== Log ===== -->
+        <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.HramCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/Text.HramLabel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="LOG OPERACJI" />
+
+                <TextView
+                    android:id="@+id/rootLog"
+                    style="@style/Text.HramValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="—" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:layout_marginBottom="24dp"
+            android:text="Swap i zRAM nie zwiększają fizycznego RAM. Swap przenosi strony na flash (wolniej, zużywa nośnik), zRAM kompresuje je w RAM (szybciej, kosztem CPU)."
+            android:textColor="@color/hram_text_dim"
+            android:textSize="11sp" />
+    </LinearLayout>
+</ScrollView>
